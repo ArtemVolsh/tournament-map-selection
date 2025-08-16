@@ -1,11 +1,9 @@
-// src/types/index.ts
-
 export interface Map {
   id: string;
   name: string;
   thumbnail: string;
   workshopUrl?: string;
-  status: "available" | "picked" | "banned";
+  status: "available" | "pick" | "ban";
   pickedBy?: "team1" | "team2";
 }
 

@@ -22,11 +22,11 @@
   opacity: 1;
 }
 
-.map-card.picked {
+.map-card.pick {
   border-color: #28a745;
 }
 
-.map-card.banned {
+.map-card.ban {
   border-color: #dc3545;
   opacity: 0.6;
 }
@@ -48,7 +48,33 @@
   transform: scale(1.05);
 }
 
-.map-overlay {
+/* Map name overlay - always visible in center */
+.map-name-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.map-name-center {
+  margin: 0;
+  color: white;
+  font-size: 1.7rem;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+  text-align: center;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  backdrop-filter: blur(14px);
+}
+
+/* Status overlay - covers entire image when active */
+.map-status-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -57,33 +83,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
+  z-index: 10;
 }
 
 .overlay-content {
   text-align: center;
   color: white;
+  z-index: 11;
 }
 
 .status-label {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-  padding: 8px 16px;
-  border-radius: 6px;
-  background-color: rgba(0, 0, 0, 0.3);
-  border: 2px solid currentColor;
-}
-
-.map-info {
-  padding: 1rem;
-  background: #34495e;
-  text-align: center;
-}
-
-.map-name {
-  margin: 0;
-  color: #ecf0f1;
-  font-size: 1.1rem;
-  font-weight: 600;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+  padding: 12px 20px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid white;
+  text-transform: uppercase;
 }

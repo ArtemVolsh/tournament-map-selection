@@ -16,16 +16,16 @@ export default function MapCard({
 }: MapCardProps) {
   const getStatusDisplay = () => {
     switch (map.status) {
-      case "picked":
+      case "pick":
         const pickingTeam = teams.find((team) => team.id === map.pickedBy);
         return {
-          overlay: "picked",
+          overlay: "pick",
           label: `PICKED BY ${pickingTeam?.name.toUpperCase() || "UNKNOWN"}`,
           color: pickingTeam?.color || "#28a745",
         };
-      case "banned":
+      case "ban":
         return {
-          overlay: "banned",
+          overlay: "ban",
           label: "BANNED",
           color: "#dc3545",
         };
@@ -51,20 +51,22 @@ export default function MapCard({
           }}
         />
 
+        {/* Map name overlay - always visible */}
+        <div className="map-name-overlay">
+          <h5 className="map-name-center">{map.name.toUpperCase()}</h5>
+        </div>
+
+        {/* Status overlay - only visible when picked/banned */}
         {status && (
           <div
-            className="map-overlay"
-            style={{ backgroundColor: status.color + "90" }}
+            className="map-status-overlay"
+            style={{ backgroundColor: status.color + "CC" }}
           >
             <div className="overlay-content">
               <span className="status-label">{status.label}</span>
             </div>
           </div>
         )}
-      </div>
-
-      <div className="map-info">
-        <h5 className="map-name">{map.name}</h5>
       </div>
     </div>
   );

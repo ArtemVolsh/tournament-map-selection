@@ -100,7 +100,7 @@ export default function PickBanInterface() {
       if (map.id === mapId && map.status === "available") {
         return {
           ...map,
-          status: currentPhase.type as "picked" | "banned",
+          status: currentPhase.type as "pick" | "ban",
           pickedBy:
             currentPhase.type === "pick" ? currentPhase.team : undefined,
         };
@@ -193,7 +193,7 @@ export default function PickBanInterface() {
     );
   }
 
-  const pickedMaps = gameState.maps.filter((map) => map.status === "picked");
+  const pickedMaps = gameState.maps.filter((map) => map.status === "pick");
 
   return (
     <div className="pickban-interface">
