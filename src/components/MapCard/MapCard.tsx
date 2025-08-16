@@ -47,7 +47,7 @@ export default function MapCard({
           alt={map.name}
           onError={(e) => {
             // Fallback to a placeholder if image fails to load
-            (e.target as HTMLImageElement).src = "./missing-image.png";
+            (e.target as HTMLImageElement).src = "/missing-image.png";
           }}
         />
 
